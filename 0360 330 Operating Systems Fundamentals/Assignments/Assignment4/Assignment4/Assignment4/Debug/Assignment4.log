@@ -1,0 +1,5 @@
+﻿  main.c
+  calculations.c
+c:\users\jay\dropbox\winter\60-330 operating systems fundamamentals\assignments\assignment4\assignment4\assignment4\calculations.c(41): warning C4102: '$quot_bit_is_1': unreferenced label
+  Generating Code...
+  Assignment4.vcxproj -> C:\Users\jay\Dropbox\WINTER\60-330 Operating Systems Fundamamentals\Assignments\Assignment4\Assignment4\Debug\Assignment4.exe
