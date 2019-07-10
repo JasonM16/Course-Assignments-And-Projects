@@ -1,0 +1,87 @@
+﻿@using CareerWebsite.Models
+@model UserDetailsViewModel
+
+@{
+    ViewData["Title"] = "Job Search";
+}
+
+
+
+<div class="container">
+    <br /><br /><br /><br />
+    <div class="row">
+        <H3>Applied Jobs</H3>
+        @if (!Model.AppliedJobs.Any())
+        {                              
+        <H5>No applied jobs found.</H5>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Date Applied</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.AppliedJobs)
+                    {
+                        <tr>
+                            <td><a asp-controller="Jobs" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a> </td>
+                            <td>@Html.DisplayFor(modelItem => item.DateApplied)</td>
+                            <td><a class="btn btn-danger btn-sm" asp-controller="Candidate" asp-action="RemoveAppliedJob" asp-route-id="@item.Id">Remove</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    <br /><br />
+        <div class="row">
+        <h3>Favourite Jobs</h3>
+        @if (!Model.FavouriteJobs.Any())
+        {
+            <H5>No favourite jobs found.</H5>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Date Favourited</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.FavouriteJobs)
+                    {
+                    <tr>
+                        <td><a asp-controller="Jobs" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a> </td>
+                        <td>@Html.DisplayFor(modelItem => item.DateApplied)</td>
+                        <td>
+                        <td><a class="btn btn-danger btn-sm" asp-controller="Candidate" asp-action="RemoveFavouriteJob" asp-route-id="@item.Id">Remove</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        </div>
+    <br /><br /><br />
+    <div class="row">
+        <div class="col-lg-12">
+            <form asp-controller="Jobs" asp-action="Index" method="get" id="searchForm" name="searchForm" novalidate="novalidate">
+                <div class="form-row">
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Search For Jobs</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

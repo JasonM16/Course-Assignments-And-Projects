@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Job Search";
+}
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Find Your New Career</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form asp-controller="Jobs" asp-action="Search" method="get" id="searchForm" name="searchForm" novalidate="novalidate">
+                <div class="form-row">                   
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Begin Search!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

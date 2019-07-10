@@ -1,0 +1,85 @@
+﻿@model CareerWebsite.Models.Job
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfVacancies)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoOfVacancies)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Posted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date_Posted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Closing_Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Closing_Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employer.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JobType.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MinEducation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MinEducation.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Employer"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit | </a> 
+    }
+}
+
+    <a asp-action="Index">Back to List</a>
+</div>

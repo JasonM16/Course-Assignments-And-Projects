@@ -1,0 +1,108 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<Job>
+@addTagHelper *, ReflectionIT.Mvc.Paging
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<br /><br /><br />
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Employer"))
+    {
+        <h2>Current Postings</h2>
+        <p><a class="btn btn-info btn-lg" asp-action="Create">Post New Job</a></p>
+    }
+
+}
+else
+{
+    <form asp-controller="Jobs" asp-action="Index" method="get" id="searchForm" name="searchForm" novalidate="novalidate">
+        <div class="form-row align-items-center">
+            <div class="col-md-4">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { placeholder = "Job Title, City, Employer Name *", @class = "form-control mb-2" })
+            </div>
+            <div class="col-auto">
+                <button id="sendMessageButton" class="btn btn-primary mb-2" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <br /><br /><br />
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Job Title</th>
+            <th>Salary</th>
+            <th>Number of Vancies</th>
+            <th>Closing Date</th>
+            <th>Employer</th>
+            <th>Job Type</th>
+            <th>Minimum Education</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.NoOfVacancies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Closing_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Employer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinEducation.Name)
+                </td>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (User.IsInRole("Employer") || User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit Job</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete Job</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="btn btn-success btn-sm" asp-controller="Candidate" asp-action="Apply" asp-route-id="@item.Id">Apply</a>
+                                <a class="btn btn-primary btn-sm" asp-controller="Candidate" asp-action="Favourites" asp-route-id="@item.Id">Favourite</a>
+                            </div>
+                        </td>
+                    }
+                }
+                else
+                {
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-success btn-sm" asp-controller="Candidate" asp-action="Apply" asp-route-id="@item.Id">Apply</a>
+                            <a class="btn btn-primary btn-sm" asp-controller="Candidate" asp-action="Favourites" asp-route-id="@item.Id">Favourite</a>
+                        </div>
+                    </td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<nav aria-label="Job Navigation">
+    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model, sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, page = ViewBag.PageNumber })
+</nav>

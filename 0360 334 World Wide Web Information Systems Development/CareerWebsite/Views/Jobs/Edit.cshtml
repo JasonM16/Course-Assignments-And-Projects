@@ -1,0 +1,86 @@
+﻿@model CareerWebsite.Models.Job
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Job</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoOfVacancies" class="control-label"></label>
+                <input asp-for="NoOfVacancies" class="form-control" />
+                <span asp-validation-for="NoOfVacancies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobDescription" class="control-label"></label>
+                <textarea asp-for="JobDescription" class="form-control"></textarea>
+                <span asp-validation-for="JobDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobLocation.City" class="control-label"></label>
+                <input asp-for="JobLocation.City" class="form-control" />
+                <span asp-validation-for="JobLocation.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobLocation.Province" class="control-label"></label>
+                <select asp-for="JobLocation.ProvinceId" class="form-control" asp-items="ViewBag.ProvinceId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobLocation.PostalCode" class="control-label"></label>
+                <input asp-for="JobLocation.PostalCode" class="form-control" />
+                <span asp-validation-for="JobLocation.PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Closing_Date" class="control-label"></label>
+                <input asp-for="Closing_Date" class="form-control" />
+                <span asp-validation-for="Closing_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start_Date" class="control-label"></label>
+                <input asp-for="Start_Date" class="form-control" />
+                <span asp-validation-for="Start_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinEducation" class="control-label"></label>
+                <select asp-for="MinEducationId" class="form-control" asp-items="ViewBag.MinEducationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobType" class="control-label"></label>
+                <select asp-for="JobTypeId" class="form-control" asp-items="ViewBag.JobTypeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
