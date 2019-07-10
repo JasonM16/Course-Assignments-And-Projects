@@ -1,0 +1,61 @@
+1. Specifics
+
+Your program will read a file containing several 32-bit integer numbers that 
+represent logical addresses. 
+However, you need only be concerned with 16-bit addresses, so you must mask 
+the rightmost 16 bits of each logical address. 
+
+These 16 bits are divided into:
+(1) an 8-bit page number, and
+(2) an 8-bit page offset.
+
+
+2. Address Translation
+
+Your program will translate logical to physical addresses using a TLB and page 
+table as outlined in Section 8.5 of the textbook (the Paging section). 
+
+First, the page number is extracted from the logical address, and the frame 
+number is obtained from the page table or a page fault occurs 
+(check the valid-invalid bit).
+
+
+3. Handling Page Faults
+
+Your program will implement demand paging as described in Section 9.2 of the 
+textbook (the Demand Paging section). 
+The backing store is represented by the file BACKING_STORE.bin, a binary file 
+of size 65,536 bytes. 
+
+When a page fault occurs, you will read in a 256-byte page from the file 
+BACKING_STORE and store it in an available page frame in physical memory. 
+
+For example, if a logical address with page number 15 resulted in a page fault, 
+your program would read in page 15 from BACKING_STORE 
+(remember that pages begin at 0 and are 256 bytes in size) and store it in a 
+page frame in physical memory. 
+
+Once this frame is stored (and the page table is updated), subsequent accesses 
+to page 15 will be resolved by the page table.
+
+You will need to treat BACKING_STORE.bin as a random-access file so that you 
+can randomly seek to certain positions of the file for reading. We suggest 
+using the standard C library functions for performing I/O, including fopen(), 
+fread(), fseek(), and fclose().
+
+The size of physical memory is the same as the size of the virtual address 
+space ---65,536 bytes--- so you do not need to be concerned about page 
+replacements during a page fault.
+
+4. Output 
+
+Your program should output the following values:
+1. The logical address being translated (the integer value being read from addresses.txt).
+2. The corresponding physical address (what your program translates the logical address to).
+3. The signed byte value stored at the translated physical address.
+
+5. Statistics
+
+After completion, your program is to report the following statistics:
+1. Page-fault rate: The percentage of address references that resulted in page 
+faults.
