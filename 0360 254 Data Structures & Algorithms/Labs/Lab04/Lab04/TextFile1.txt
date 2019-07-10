@@ -1,0 +1,12 @@
+﻿/**
+ *  The MinPQ class represents a priority queue of generic keys.
+ *  It supports the usual insert and delete-the-minimum>
+ *  operations, along with methods for peeking at the minimum key,
+ *  testing if the priority queue is empty, and iterating through
+ *  the keys.
+ *  
+ *  This implementation uses a binary heap.
+ *  The insert and delete-the-minimum operations take logarithmic amortized time.
+
+ *  The min, siz, and is-empty operations take constant time.
+ *  Construction takes time proportional to the specified capacity or the number of items used to initialize the data structure.

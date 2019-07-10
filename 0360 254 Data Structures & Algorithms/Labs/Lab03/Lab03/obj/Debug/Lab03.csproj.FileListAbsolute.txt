@@ -1,0 +1,12 @@
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.exe.config
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.exe
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.pdb
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.csprojResolveAssemblyReference.cache
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.exe
+C:\Users\jason\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.pdb
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.exe.config
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.exe
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.pdb
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.exe
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\bin\Debug\Lab03.pdb
+C:\Users\jay\Dropbox\COMPUTER SCIENCE\WINTER\60-254 Data Structures and Algorithms\Labs\Lab03\Lab03\obj\Debug\Lab03.csprojResolveAssemblyReference.cache

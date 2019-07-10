@@ -1,0 +1,34 @@
+﻿1. Consider a binary search tree (BST). Assume that the keys are integers and 
+   no values (objects) other than the keys are stored in each node. 
+   By following the explanations and examples given in class, design an 
+   algorithm for operation remove(k).
+
+2. Using your favorite programming language, implement the BST ADT in a 
+   linked structure, along with the following operations: find, insert and remove.
+   The find method should call TreeSearch, which you have to implement too.
+
+3. Implement the InOrder traversal method for showing the keys of the BST in 
+   increasing order.
+
+4. Insert 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 in the tree
+   (in that order). Show all keys in the tree (for this and the following, use 
+   the InOrder traversal method you implemented in #3).
+
+5. Perform find(1) and find(15) 100,000 times and record the CPU time taken by 
+   each of these.
+
+6. Remove key 5. Show all keys in inorder traversal. Remove 15. Show all the 
+   keys in inorder traversal. Remove 1. Show all the keys in inorder traversal. 
+   Insert key 2. Show all keys in inorder traversal.
+
+7. Create a new empty binary search tree. 
+   Insert 8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15, in that order. 
+   Show all keys of the tree in inorder traversal.
+
+8. Perform find(1) and find(15) 100,000 times and record the CPU time taken 
+   by each of these.
+
+9. Compare the CPU times of #5 and #8, and explain how they are related to 
+   the best and worst-case running times of the find operation.
+
+10. Remove key 8 and show the keys of the resulting tree (again, in inorder traversal).

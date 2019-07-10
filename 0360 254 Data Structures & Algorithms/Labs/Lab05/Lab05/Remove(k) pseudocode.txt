@@ -1,0 +1,46 @@
+﻿Remove(Node n, Key k)
+
+Case 1:
+base case:
+if the node n is null, return null;
+
+if the search key is less than the node's key, do a recursive search on the left child: 
+
+if k is less than n.key
+Remove(Left child, k)
+
+conversely, if search key is greater than the node's key, do a recursive search on the right child:
+
+if k is greater than n.key
+Remove(Right child k)
+           
+else, k is equal to n.key    
+
+Case 2: 
+if Right child is null, set node to Left child
+
+Case 2:
+if Left child is null, set node to Right child
+
+Case 3: No child is null...Node has 2 links
+
+Because Node n has a right child, its successor is the node with the smallest key in its right subtree... 
+The replacement preserves order in the tree because there are no keys in external nodes. 
+
+So, save link to node to be deleted Node n)
+Temprorary node = Node n
+
+Node n's successor will be right child's subtree with the smallest key
+n = Right child's node with the smallest key
+
+Set the right link of Node n, which is supposed to point to the BST containing all the keys larger than Node n's key
+the link to the BST containing all the keys that are larger than Node n's key after the deletion:
+
+n.Right = The minimum of Temporary node's Right child
+
+Set Node n's Left child (which was null) to Temporary node's Left child. 
+All the keys that are less than both the deleted key and its successor
+
+Node n Left child = Temporary Node Left child    
+            
+return a reference to updated node
