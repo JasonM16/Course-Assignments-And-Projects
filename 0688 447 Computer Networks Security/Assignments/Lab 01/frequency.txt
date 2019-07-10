@@ -1,0 +1,27 @@
+English Letter Frequency:
+ frequency[0]=0.08167;
+ frequency[1]=0.01492;
+ frequency[2]=0.02782;
+ frequency[3]=0.04253;
+ frequency[4]=0.12702;
+ frequency[5]=0.02228;
+ frequency[6]=0.02015;
+ frequency[7]=0.06094;
+ frequency[8]=0.06996;
+ frequency[9]=0.00153;
+ frequency[10]=0.00772;
+ frequency[11]=0.04025;
+ frequency[12]=0.02406;
+ frequency[13]=0.06749;
+ frequency[14]=0.07507;
+ frequency[15]=0.01929;
+ frequency[16]=0.00095;
+ frequency[17]=0.05987;
+ frequency[18]=0.06327;
+ frequency[19]=0.09056;
+ frequency[20]=0.02758;
+ frequency[21]=0.00978;
+ frequency[22]=0.02360;
+ frequency[23]=0.00150;
+ frequency[24]=0.01974;
+ frequency[25]=0.00074;
