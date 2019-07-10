@@ -1,0 +1,4 @@
+﻿  main.c
+c:\users\jason\dropbox\computer science\spring\88-447 computer networks and cryptography\labs\lab 01\lab01\lab01\main.c(206): warning C4172: returning address of local variable or temporary: inner_product
+  Lab01.vcxproj -> C:\Users\jason\Dropbox\COMPUTER SCIENCE\SPRING\88-447 Computer Networks and Cryptography\Labs\Lab 01\Lab01\Debug\Lab01.exe
+  Lab01.vcxproj -> C:\Users\jason\Dropbox\COMPUTER SCIENCE\SPRING\88-447 Computer Networks and Cryptography\Labs\Lab 01\Lab01\Debug\Lab01.pdb (Partial PDB)
