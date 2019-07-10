@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# FILE            : producer
+# AUTHOR          : Jason Choquette, 104 337 378
+# LAST MODIFIED   : March 11, 2017
+# DESCRIPTION     : This script reads an integer value from a 
+#                   file then increase the value by 8 and writes
+#                   the the modified value back to the file.
+#					Once the file has been written to and a statement 
+#                   has been printed to the user, the script calls 
+#					a c program to continue execution.  
+
+
+
+if [ $# -eq 1 ]; then
+	number=$(cat $1)	
+else
+	number=$(cat "./storage")	
+fi	
+
+
+let newNumber=${number}+8
+
+if [ "$newNumber" -ge "100" ]; then
+    echo "from producer: Now I will take a rest!"
+    exit
+fi
+
+echo -n "from producer: current total is "
+echo ${newNumber}
+
+echo ${newNumber} > "./storage"
+
+./consumer 
