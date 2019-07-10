@@ -1,0 +1,32 @@
+Script started on Tue 16 Sep 2014 12:36:38 PM EDT
+choquetj@alpha:~/cs140/lab1$ cat exercise1.c
+/*
+    CHOQUETTE, JASON
+    ID: 104337378
+    Lab Exercise #1
+    Date: Sept 19/14
+    Purpose: This is a simple C program used for practice.  
+*/
+
+
+#include<stdio.h>
+
+int main(void)
+{
+  printf("My name is Jason Choquette\nThis is my first C program!\n\n");
+
+  return 0;
+}
+
+
+
+
+choquetj@alpha:~/cs140/lab1$ cc exercise1.c
+choquetj@alpha:~/cs140/lab1$ ./a.out
+My name is Jason Choquette
+This is my first C program!
+
+choquetj@alpha:~/cs140/lab1$ exit
+exit
+
+Script done on Tue 16 Sep 2014 12:37:23 PM EDT

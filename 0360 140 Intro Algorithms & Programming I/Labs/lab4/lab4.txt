@@ -1,0 +1,410 @@
+Script started on Mon 20 Oct 2014 08:38:12 PM EDT
+choquetj@alpha:~$ cat lab4_q1.c
+/*
+
+* ASSIGNMENT	: Lab 4
+* FILE	 		: lab4_q1.c
+* AUTHOR		: Jason Choquette
+* ID			: 104337378
+* DATE			: October 20/14
+* DESCRIPTION	: Write a program that prompts the user to enter an integer 
+				  number n between 1 and 10. The program then displays n 
+				  asterisks. Note that the user will be given a maximum of 3
+				  attempts to enter a valid code.
+
+				  Example:
+				  Please enter an integer between 1 and 10: 15
+				  You have entered an invalid entry, 2 attempts left, try again!
+
+				  Please enter an integer between 1 and 10: 5
+				  5: *****
+
+				  Another run:
+				  Please enter an integer between 1 and 10: 15
+				  You have entered an invalid entry, 2 attempts left, try again!
+
+				  Please enter an integer between 1 and 10: 0
+				  You have entered an invalid entry, 1 attempt left, try again!
+
+				  Please enter an integer between 1 and 10: 11
+				  You have entered an invalid entry! Goodbye!
+*/
+
+
+#include <stdio.h> // printf, scanf
+
+
+// program entry
+int main (void)
+{
+	
+	int attempts = 3;
+	int num = 0;
+	
+	while (1)
+	{
+		printf("Please enter an integer between 1 and 10: ");	
+		scanf("%d", &num);
+		
+		if(num > 10 || num < 1)
+		{
+			--attempts;
+
+			printf("You have entered an invalid entry");
+			if(attempts == 0)
+			{
+				printf("! Goodbye!\n\n");
+				break;
+			} 
+			else if (attempts > 1)
+				printf(", %d attempts left, try again!\n\n", attempts);		
+			
+			else
+				printf(", 1 attempt left, try again!\n\n");
+			
+			continue;			
+		}
+		
+		else
+		{
+			int i = 0;
+			printf("%d: ", num);
+			
+			for(;i < num; i++)
+				printf("*");
+						
+			printf("\n\n");
+			break;
+		}		
+	}
+		
+    return 0;
+}
+
+
+// EOF
+choquetj@alpha:~$ cat lab4_q1.c[1P lab4_q1.c[1P lab4_q1.cc lab4_q1.c
+choquetj@alpha:~$ ./a.out 
+Please enter an integer between 1 and 10: 15
+You have entered an invalid entry, 2 attempts left, try again!
+
+Please enter an integer between 1 and 10: 5
+5: *****
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer between 1 and 10: 16
+You have entered an invalid entry, 2 attempts left, try again!
+
+Please enter an integer between 1 and 10: 556
+You have entered an invalid entry, 1 attempt left, try again!
+
+Please enter an integer between 1 and 10: 54
+You have entered an invalid entry! Goodbye!
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer between 1 and 10: 2
+2: **
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer between 1 and 10: 10
+10: **********
+
+choquetj@alpha:~$ ca[K[K./a.out cc lab4_q1.c[1@at[C[C[C[C[C[C[C[C[C[C[1P.c2.c
+/*
+* ASSIGNMENT	: Lab 4
+* FILE	 		: lab4_q2.c
+* AUTHOR		: Jason Choquette
+* ID			: 104337378
+* DATE			: October 20/14
+* DESCRIPTION	: Write a program that can read two integers n and m between 1
+				  and 100, such that n < m. Then display the following sequences:
+				  s1. n n+1 n+2 ... m
+				  s2. all odd numbers between n and m
+				  s3. all multiples of 5 between n and m
+				  s4. all numbers from m down to n
+
+				  Examples:
+				  Please enter an integer value for n and m (n < m): 4 3
+				  Invalid input. Goodbye.
+
+				  Please enter an integer value for n and m (n < m): 6 16
+				  6 7 8 9 10 11 12 13 14 15 16
+				  7 9 11 13 15
+				  10 15
+				  16 15 14 13 12 11 10 9 8 7 6
+*/
+
+
+#include <stdio.h> // printf, scanf
+
+
+// program entry
+int main (void)
+{	
+	int n = 0;
+	int m = 0;
+	
+	while (1)
+	{		
+		printf("Please enter an integer value for n and m (n < m): ");	
+		scanf("%d %d", &n, &m);
+		
+		if(n > m)
+		{
+			printf("Invalid input. Goodbye.");
+			break;
+		}	
+				
+		else
+		{				
+			int i = n;
+					
+			for(;i <= m; i++)
+				printf("%d ", i);
+						
+			printf("\n");
+						
+			// print odds
+			i = n;
+			// if i is even
+			// make it odd
+			if (i % 2 == 0) i += 1;
+			
+			for(; i <= m; i += 2)
+				printf("%d ", i);			
+						
+			printf("\n");
+						
+			// print multiples of 5
+			i = n;
+			// find the first multiple of 5
+			// this will loop at most 4 times
+			while(i % 5 != 0)
+				i++;
+						
+			// i is now a multiple of 5 so we can increment by 5
+			// and be guaranteed to print multiples of 5
+			for(; i <= m; i += 5)
+				printf("%d ", i);			
+						
+			printf("\n");
+			
+			i = m;
+			for(; i >= n; i--)
+				printf("%d ", i);			
+						
+			printf("\n\n");
+			break;
+		}		
+	}
+		
+    return 0;
+}
+
+
+// EOF
+choquetj@alpha:~$ cat lab4_q2.c[5P./a.out cat lab4_q2.c[1P lab4_q2.c[1P lab4_q2.cc lab4_q2.c
+choquetj@alpha:~$ cc lab4_q2.c[1@at[C[C[C[C[C[C[C[C[C[C[5P./a.out 
+Please enter an integer value for n and m (n < m): 54 50
+Invalid input. Goodbye.choquetj@alpha:~$ ./a.out 
+Please enter an integer value for n and m (n < m): 6 35
+6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 
+7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 
+10 15 20 25 30 35 
+35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 
+
+choquetj@alpha:~$ ./a.out cc lab4_q2.c[1@at[C[C[C[C[C[C[C[C[C[C[1P.c3.c
+/*
+
+* ASSIGNMENT	: Lab 4
+* FILE	 		: lab4_q3.c
+* AUTHOR		: Jason Choquette
+* ID			: 104337378
+* DATE			: October 20/14
+* DESCRIPTION	: Write a program that reads an integer number n between 1 and
+				  10 and generates n random values between 1 and 49.
+	
+				  Example:
+				  Please enter an integer n between 1 and 10: 5
+				  5 random numbers between 1 and 49 are: 34 21 33 22 40
+*/
+
+
+#include <stdio.h> // printf, scanf, NULL
+#include <time.h>  // srand
+
+
+// program entry
+int main (void)
+{
+	int n = 0;
+	int i = 0;
+	
+	printf("Please enter an integer n between 1 and 10: ");
+	scanf("%d", &n);
+	
+	// initialize random seed. Use NULL to use the default initilizer 
+    srand (time(NULL)); 
+		 
+	printf("%d random numbers between 1 and 49 are: ", n);
+	for(; i < n; i++)
+		printf("%d ", rand() % 49 + 1); // pick a random digit from 1 to 49	
+		
+	printf("\n\n");
+
+    return 0;
+}
+
+
+//EOF
+choquetj@alpha:~$ cat lab4_q3.c[1P lab4_q3.c[1P lab4_q3.cc lab4_q3.c
+choquetj@alpha:~$ cc lab4_q3.c[1@at[C[C[C[C[C[C[C[C[C[C[5P./a.out 
+Please enter an integer n between 1 and 10: 7
+7 random numbers between 1 and 49 are: 14 14 31 48 17 32 41 
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer n between 1 and 10: 8
+8 random numbers between 1 and 49 are: 37 22 28 41 23 2 28 30 
+
+choquetj@alpha:~$ ./a.out 5
+Please enter an integer n between 1 and 10: 5
+5 random numbers between 1 and 49 are: 47 47 31 47 26 
+
+choquetj@alpha:~$ ./a.out 5[K
+Please enter an integer n between 1 and 10: 8
+8 random numbers between 1 and 49 are: 5 33 37 34 29 7 38 17 
+
+choquetj@alpha:~$ ./a.out 5[Kcc lab4_q3.c[1@at[C[C[C[C[C[C[C[C[C[C[1P.c4.c
+/*
+* ASSIGNMENT	: Lab 4
+* FILE	 		: lab4_q4.c
+* AUTHOR		: Jason Choquette
+* ID			: 104337378
+* DATE			: October 20/14
+* DESCRIPTION	: Write a program that can read an integer n between 1 and 10
+				  and generates the following art:
+	
+				  Example:
+
+				  Please enter an integer between 1 and 10: 6
+				  * * * * * *
+				  * * * * * *
+				  * * * * * *
+				  * * * * * *
+				  * * * * * *
+				  * * * * * *
+				  *
+				  **
+				  ***
+				  ****
+				  *****
+				  ******
+*/
+
+
+#include <stdio.h> // printf, scanf
+
+
+// program entry
+int main (void)
+{
+	int n = 0;
+	int i = 0;
+	int j = 0;
+		
+	printf("Please enter an integer n between 1 and 10: ");
+	scanf("%d", &n);
+
+	for(; i < n; i++)
+	{
+		for(; j < n; j++)
+			printf("*");
+				
+		j = 0;
+		printf("\n");		
+	}	
+
+	printf("\n");
+	i = 1;
+	j = 0;	
+
+	for(; i <= n; i++)
+	{
+		for(; j < i; j++)
+			printf("*");
+				
+		j = 0;
+		printf("\n");		
+	}	
+	
+	printf("\n\n");
+
+    return 0;
+}
+
+
+// EOF
+choquetj@alpha:~$ cat lab4_q4.c[1P lab4_q4.c[1P lab4_q4.cc lab4_q4.c
+choquetj@alpha:~$ cc lab4_q4.c[1@at[C[C[C[C[C[C[C[C[C[C[5P./a.out 
+Please enter an integer n between 1 and 10: 8
+********
+********
+********
+********
+********
+********
+********
+********
+
+*
+**
+***
+****
+*****
+******
+*******
+********
+
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer n between 1 and 10: 4
+****
+****
+****
+****
+
+*
+**
+***
+****
+
+
+choquetj@alpha:~$ ./a.out 
+Please enter an integer n between 1 and 10: 10
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+**********
+
+*
+**
+***
+****
+*****
+******
+*******
+********
+*********
+**********
+
+
+choquetj@alpha:~$ exit
+exit
+
+Script done on Mon 20 Oct 2014 08:42:39 PM EDT
