@@ -1,1 +1,1 @@
-# Course-Projects
+# Course-Projects, Assignments and Course Outlines
